@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+
 const Client = () => {
   const [data, setData] = useState({ name: "", age: 0 });
   const [serverData, setServerData] = useState({});
@@ -10,22 +11,24 @@ const Client = () => {
         name: data.name,
         age: data.age,
       });
-      console.log(res);
+      console.log("res:", res);
+      console.log(res.data);
       const { message } = res.data;
       console.log(message);
       setServerData(message);
       alert(
-        "이름이 백엔드에 전송되었어요 나중에 db와 backend에서 연동이 되겠죠?"
+        "이름이 백엔드에 전송되었어요 나중에  db와 backend에서 연동이 되겠죠?"
       );
     } catch (error) {
-      console.log("전송실패: ", error);
+      console.error("전송실패:", error);
     }
+    //다 하신분은 frontend에서 버튼을 누르면
+    //backend의 li 배열의 다음 객체의 숫자를 frontend에 전송하세요
   };
-
   return (
     <div style={{ padding: "2rem" }}>
-      {/* 서버로 받은 데이터 {serverData ? message : "아직없음"} */}
-      <h1>이름입력</h1>
+      {/* {serverData && <div>서버로 받은 데이터 {serverData}</div>} */}
+      <h1> 이름입력</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -33,11 +36,10 @@ const Client = () => {
           placeholder="이름을 입력하세요"
           onChange={(e) => setData((i) => ({ ...i, name: e.target.value }))}
         />
-
         <input
-          type="text"
+          type="number"
           value={data.age}
-          placeholder="나이"
+          placeholder="이름을 입력하세요"
           onChange={(e) =>
             setData((i) => ({ ...i, age: Number(e.target.value) }))
           }

@@ -1,8 +1,8 @@
-import { lazy, Suspense } from "react";
+import { Children, lazy, Suspense } from "react";
 import { ClipLoader } from "react-spinners";
 import todoRouter from "./todoRouter";
 const { createBrowserRouter } = require("react-router-dom");
-const Loading = <div>Loading ...</div>;
+// const Loading = <div>Loading ...</div>;
 const Main = lazy(() => import("../pages/MainPage"));
 const About = lazy(() => import("../pages/AboutPage"));
 const TodoIndex = lazy(() => import("../pages/todo/IndexPage"));

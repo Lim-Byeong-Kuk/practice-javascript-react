@@ -9,8 +9,7 @@ const ModifyPage = ({ tno }) => {
   const moveToList = () => {
     navigate({ pathname: `/todo/list` });
   };
-
-  return <div className="text-3xl font-extrabold">Todo ModifyPage</div>;
+  return <div className="text-3xl font-extrabold">Todo ModifyPage </div>;
 };
 
 export default ModifyPage;

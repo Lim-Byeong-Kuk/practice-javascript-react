@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import BasicLayout from "../../layouts/BasicLayout";
-import { Navigate, Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 
 const IndexPage = () => {
   const navigate = useNavigate();
@@ -11,8 +11,8 @@ const IndexPage = () => {
     navigate({ pathname: "add" });
   });
 
-  //useCallback, userMemo => 한번 데이터 가져오면 기존의 데이터 유지
-  //callback 은 함수를 재활용 ,useMemo 데이터 재활용
+  //useCallback , useMemo => 한번 데이터 가져오면 기존의 데이터 유지
+  //callback은 함수를 재활용 , useMemon 데이터 재활용
   return (
     <BasicLayout>
       <div className="w-full flex m-2 p-2">
@@ -28,9 +28,9 @@ const IndexPage = () => {
         >
           추가
         </div>
-      </div>
-      <div className="flex flex-wrap w-full">
-        <Outlet />
+        <div className="flex flex-wrap w-full">
+          <Outlet />
+        </div>
       </div>
     </BasicLayout>
   );

@@ -4,7 +4,7 @@ const FalseGreen = ({ a, b }) => {
   console.log(a);
   return (
     <div>
-      FalseGreen : {a}, {b}
+      FalseGreen : {a},{b}
     </div>
   );
 };
