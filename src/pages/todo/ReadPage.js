@@ -1,5 +1,11 @@
 import React, { useCallback } from "react";
-import { createSearchParams, useNavigate, useParams } from "react-router-dom";
+import {
+  createSearchParams,
+  useNavigate,
+  useParams,
+  useSearchParams,
+} from "react-router-dom";
+import ReadComponent from "../../components/todo/ReadComponent";
 
 const ReadPage = () => {
   const [queryParams] = useSearchParams(); //use~ 리액트에서 hook이라고 한다 useState ,useParams
@@ -16,7 +22,8 @@ const ReadPage = () => {
   ); //두번째 인자 (배열)의 변수(tno ,page,size) 가 변경될때만 람다함수 호출됨
   return (
     <div className="text-3xl font-extrabold">
-      Todo Read 페이지 Component {tno}
+      <div className="text-2xl">Todo Read 페이지 Component {tno}</div>
+      <ReadComponent tno={tno}></ReadComponent>
       <div>
         <button onClick={moveToModify}>Test modify</button>
       </div>
