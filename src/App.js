@@ -1,3 +1,5 @@
+import B from "./components/B";
+import C from "./components/C";
 import Eunji from "./components/Eunji";
 import Hyungwoo from "./components/Hyungwoo";
 import Jongmin from "./components/Jongmin";
@@ -22,6 +24,8 @@ function App() {
       <Route path="/star/add" element={<StarAdd />}></Route>
       <Route path="/star/list" element={<StarList />}></Route>
       <Route path="/star/list2" element={<StarList2 />}></Route>
+      {/* <Route path="/u" element={<B />}></Route> */}
+      <Route path="/c2" element={<C />}></Route>
     </Routes>
   );
 }
