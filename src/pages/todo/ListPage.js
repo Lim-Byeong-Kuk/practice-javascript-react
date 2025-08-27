@@ -1,4 +1,5 @@
 import { useSearchParams } from "react-router-dom";
+import ListComponent from "../../components/todo/ListComponent";
 
 const ListPage = () => {
   const [queryParams] = useSearchParams(); //use~ 리액트에서 hook이라고 한다 useState ,useParams
@@ -9,6 +10,7 @@ const ListPage = () => {
     <div className="p-4 w-full bg-orange-200">
       <div className="text-3xl font-extrabold">
         Todo List 페이지 Component {page}---{size}
+        <ListComponent />
       </div>
     </div>
   );

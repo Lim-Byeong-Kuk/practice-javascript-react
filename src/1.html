@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  </head>
+  <body>
+    <script>
+      const color = ["red", "blue"];
+
+      var data = [
+        { title: "오늘", complete: true, tno: 3 },
+        { title: "내일", complete: false, tno: 23 },
+        { title: "모레", complete: true, tno: 11 },
+        { title: "어제", complete: true, tno: 8 },
+        { title: "글피", complete: true, tno: 100 },
+        { title: "내일모레", complete: true, tno: 1000 },
+      ];
+      //문1) map 사용하지 말고 반복문으로 아래 코드 수정
+      //   console.log({ ...data[0], complete: !data[0].complete });
+
+      var result = [];
+      for (const i of data) {
+        result.push({ ...i, complete: !i.complete });
+      }
+
+      const f = (e) => {
+        for (var i = 0; i < data.length; i++) {
+          if (i == 0) {
+            data[i].complete = !data[i].complete;
+          }
+        }
+        console.log(data);
+      };
+
+      const g = (e) => {
+        data = data.map((i, index) =>
+          index == 0 ? { ...i, complete: !i.complete } : i
+        );
+        console.log(data);
+      };
+      $(document).ready(function (e) {
+        $.each(data, function (idx, item) {
+          console.log(item, idx);
+
+          var $b = $("button").eq(idx);
+
+          $b.click(function (e) {
+            console.log(idx);
+            if (data[idx].complete) {
+              $b.css("color", "red");
+            } else {
+              $b.css("color", "blue");
+            }
+            data[idx].complete = !data[idx].complete;
+          });
+        });
+      });
+    </script>
+    <div>
+      <button>버튼</button>
+    </div>
+    <div>
+      <button>버튼</button>
+    </div>
+    <div>
+      <button onClick="f()">f버튼</button>
+    </div>
+    <div>
+      <button onClick="g()">g버튼</button>
+    </div>
+  </body>
+</html>
