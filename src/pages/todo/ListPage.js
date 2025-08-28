@@ -9,7 +9,7 @@ const ListPage = () => {
   return (
     <div className="p-4 w-full bg-orange-200">
       <div className="text-3xl font-extrabold">
-        Todo List 페이지 Component {page}---{size}
+        Todo List 페이지 Component pzge : {page}---size : {size}
         <ListComponent />
       </div>
     </div>

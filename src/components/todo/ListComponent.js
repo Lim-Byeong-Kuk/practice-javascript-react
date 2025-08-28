@@ -17,14 +17,14 @@ const initState = {
 };
 
 const ListComponent = () => {
-  const { page, size, moveToList, moveToRead } = useCustomMove(); // moveToRead(tno) 등 라우팅 훅이 있다면 사용
+  const { page, size, moveToList, refresh, moveToRead } = useCustomMove(); // moveToRead(tno) 등 라우팅 훅이 있다면 사용
   const [serverData, setServerData] = useState(initState);
 
   useEffect(() => {
     getList({ page, size }).then((da) => {
       setServerData(da);
     });
-  }, [page, size]);
+  }, [page, size, refresh]);
 
   return (
     <div className="border-2 border-blue-100 mt-10 mr-2 ml-2">
@@ -33,6 +33,7 @@ const ListComponent = () => {
           <div
             key={todo.tno}
             className="w-full min-w-[400px] p-2 m-2 rounded shadow-md"
+            onClick={() => moveToRead(todo.tno)}
           >
             <div className="flex">
               <div className="font-extrabold text-2xl p-2 w-1/12">

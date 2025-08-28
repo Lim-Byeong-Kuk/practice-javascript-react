@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+      $(document).ready(() => {
+        var list = [
+          { tno: 3, address: "수원", age: 11 },
+          { tno: 7, address: "미금", age: 13 },
+          { tno: 17, address: "부산", age: 13 },
+          { tno: 117, address: "미국", age: 70 },
+        ];
+        var f = [3, 7, 17, 117];
+        $.each(list, function (idx, item) {
+          $("button")
+            .eq(idx)
+            .click(function (e) {
+              console.log("버튼이 눌렸어요", idx);
+
+              //   list.map((i) => {
+              //     if (i.tno == f[idx]) {
+              //       console.log(i);
+              //     }
+              //   });
+              if (item.tno == f[idx]) {
+                console.log(item);
+              }
+            });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <button>버튼1</button>
+    <button>버튼2</button>
+    <button>버튼3</button>
+    <button>버튼4</button>
+  </body>
+</html>

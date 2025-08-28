@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import {
   createSearchParams,
   useNavigate,
@@ -12,6 +12,7 @@ const getNum = (param, defaultValue) => {
 
 const useCustomMove = () => {
   const navigate = useNavigate();
+  const [refresh, setRefresh] = useState(false);
   const [queryParams] = useSearchParams();
 
   const page = getNum(queryParams.get("page"), 1);
@@ -42,7 +43,16 @@ const useCustomMove = () => {
     },
     [page, size]
   );
-  return { moveToList, moveToModify, page, size };
+
+  const moveToRead = (num) => {
+    console.log(queryDefault);
+    navigate({
+      pathname: `../read/${num}`,
+      search: queryDefault,
+    });
+  };
+
+  return { moveToList, moveToModify, moveToRead, page, size, refresh };
 };
 
 export default useCustomMove;
